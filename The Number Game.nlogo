@@ -47,9 +47,9 @@ end
 to initialize-people
   create-people num-agents [
     setxy random(world-width) random(world-height)
-    set color grey
+    set color black
     set shape "person"
-    set size 3
+    set size 1
     set interactions 0
     set words []
     set role "none"
@@ -213,8 +213,8 @@ SLIDER
 num-agents
 num-agents
 0
-100
-100.0
+1000
+115.0
 1
 1
 NIL
@@ -255,11 +255,12 @@ Words
 -5.0
 10.0
 true
-false
+true
 "" ""
 PENS
-"default" 1.0 0 -16777216 true "" "plot total-words"
+"total-words" 1.0 0 -16777216 true "" "plot total-words"
 "value-1" 1.0 0 -2674135 true "" "plot 1"
+"active-people" 1.0 0 -14454117 true "" "plot count (people with [interactions > 0])"
 
 BUTTON
 78
@@ -309,7 +310,7 @@ PLOT
 337
 495
 487
-Mean words per agent
+Words per agent
 NIL
 NIL
 0.0
@@ -332,7 +333,7 @@ BUTTON
 220
 49
 go
-;;go-once\nifelse any? people with [length words != 1] [go-once][stop]
+;; go-once\nifelse any? people with [length words != 1] [go-once][stop]
 T
 1
 T
@@ -398,6 +399,24 @@ neighbor-radius
 1
 NIL
 HORIZONTAL
+
+PLOT
+1221
+16
+1589
+230
+Inventory Sizes
+Inventory Size
+Frequency
+0.0
+10.0
+0.0
+10.0
+true
+false
+"" ""
+PENS
+"inventory-size" 1.0 1 -16777216 true "" "histogram [length words] of people"
 
 @#$#@#$#@
 ## WHAT IS IT?
